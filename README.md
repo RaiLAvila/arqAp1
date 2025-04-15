@@ -1,6 +1,5 @@
 # Arquitetura de Computadores AP1
-## Integrantes do Grupo
-// Sketch do Projeto - Sistema de Detecção de Alvo
+## Sketch do Projeto - Sistema de Detecção de Alvo
 // Alunos: 
 // Rai Lamper de Avila - 202402627279 - TA
 // Gabriel Maia Sampaio - 202402627295 - TA
@@ -152,6 +151,14 @@ void modoCritico(bool som) {
   for (int i = 5; i <= 9; i++) {
     digitalWrite(i, HIGH);
   }
+
+  if (som) {
+    tone(buzzerPin, freqAlta);
+  } else {
+    noTone(buzzerPin);
+  }
+}
+
 
   if (som) {
     tone(buzzerPin, freqAlta);
