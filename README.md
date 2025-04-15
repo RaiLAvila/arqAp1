@@ -1,4 +1,4 @@
-# arqAp1
+# Arquitetura de Computadores AP1
 ## Integrantes do Grupo
 1. Rai Lamper de Avila - 202402627279 - TA
 2. Gabriel Maia Sampaio - 202402627295 - TA
