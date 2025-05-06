@@ -23,7 +23,7 @@ const int chave2Pin = 11;
 const int ledChave1 = 12;
 const int ledChave2 = 13;
 
-const int jumperFonte = A0; // Novo jumper de energia
+const int jumperFonte = A0; 
 
 long duracao;
 float distancia;
@@ -50,13 +50,13 @@ void setup() {
   pinMode(ledChave1, OUTPUT);
   pinMode(ledChave2, OUTPUT);
 
-  pinMode(jumperFonte, INPUT_PULLUP); // Configura o jumper como entrada com pull-up
+  pinMode(jumperFonte, INPUT_PULLUP);
 }
 
 void loop() {
-  // Verifica o jumper de energia
+
   if (digitalRead(jumperFonte) == HIGH) {
-    desligarTudo(); // Desliga tudo se o jumper estiver desconectado
+    desligarTudo(); 
     return;
   }
 
@@ -171,6 +171,5 @@ void modoCritico(bool som) {
     noTone(buzzerPin);
   }
 }
-
 
 
