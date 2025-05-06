@@ -159,11 +159,3 @@ void modoCritico(bool som) {
   }
 }
 
-
-  if (som) {
-    tone(buzzerPin, freqAlta);
-  } else {
-    noTone(buzzerPin);
-  }
-}
-
