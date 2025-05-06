@@ -23,6 +23,8 @@ const int chave2Pin = 11;
 const int ledChave1 = 12;
 const int ledChave2 = 13;
 
+const int jumperFonte = A0; // Novo jumper de energia
+
 long duracao;
 float distancia;
 
@@ -47,9 +49,17 @@ void setup() {
 
   pinMode(ledChave1, OUTPUT);
   pinMode(ledChave2, OUTPUT);
+
+  pinMode(jumperFonte, INPUT_PULLUP); // Configura o jumper como entrada com pull-up
 }
 
 void loop() {
+  // Verifica o jumper de energia
+  if (digitalRead(jumperFonte) == HIGH) {
+    desligarTudo(); // Desliga tudo se o jumper estiver desconectado
+    return;
+  }
+
   int chave1 = digitalRead(chave1Pin);
   int chave2 = digitalRead(chave2Pin);
 
@@ -103,9 +113,10 @@ void desligarTudo() {
 }
 
 void modoAlertaVisualModerado(bool som) {
+
   digitalWrite(led1, HIGH);
-  digitalWrite(led2, LOW);
-  digitalWrite(led3, HIGH);
+  digitalWrite(led2, HIGH);
+  digitalWrite(led3, LOW);
   digitalWrite(led4, LOW);
   digitalWrite(led5, LOW);
 
@@ -116,13 +127,15 @@ void modoAlertaVisualModerado(bool som) {
   delay(300);
 
   digitalWrite(led1, LOW);
-  digitalWrite(led2, HIGH);
-  digitalWrite(led3, LOW);
-  digitalWrite(led4, HIGH);
-  delay(300);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, HIGH);
+  digitalWrite(led4, LOW);
+  digitalWrite(led5, LOW);
 
+  delay(300);
   noTone(buzzerPin);
 }
+
 
 void modoAlertaVisualRapido(bool som) {
   digitalWrite(led1, HIGH);
@@ -158,4 +171,6 @@ void modoCritico(bool som) {
     noTone(buzzerPin);
   }
 }
+
+
 
